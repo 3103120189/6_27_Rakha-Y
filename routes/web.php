@@ -18,17 +18,21 @@ Route::get('/', function () {
 });
 
 Route::get('/', function(){
-    return view ('home');
+    return view ('home', [
+        "title" => "Home"
+    ]);
 
 });
-Route::get('/about', function(){
-    return view ('about');
-});
+
+
 Route::get('/gallery', function(){
-    return view ('gallery');
+    return view ('gallery', [
+        "title" => "Gallery"
+    ]);
 });
 Route::get('/about', function(){
     return view('about', [
+        "title" => "About",
         "nama" => "Rakha Yudhistira",
         "email" => "3103120189@student.smktelkom-pwt.sch.id",
         "gambar" => "rakha y.jpeg"

@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/', function(){
-    return view ('home', [
-        "title" => "Home"
+    return view ('index', [
+        "title" => "Beranda"
     ]);
 
 });
@@ -41,3 +41,8 @@ Route::get('/about', function(){
 });
 
 Route::resource('/contacts', ContactController::class);
+Auth::routes();
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
